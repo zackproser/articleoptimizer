@@ -1,0 +1,468 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {% stylesheets 'css/report/*.css' %}
+    {# Render all report page-specific stylesheets #}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/report.js') }}"></script>
+	<script src="{{ asset('js/clipboard.min.js') }}"></script>
+	<script src="{{ asset('js/report-client.js') }}"></script>
+{% endblock %}
+
+{% block header %}
+    <!--twitter-card-meta-->
+    <meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@articleoptimizr">
+	<meta name="twitter:title" content="Article Optimizer Analysis">
+	<meta name="twitter:description" content="I just had my content optimized by the Article Optimizer!">
+	<meta name="twitter:creator" content="">
+	<meta name="twitter:image:src" content="http://farm8.staticflickr.com/7385/9719137204_954c958fc3.jpg">
+	<meta name="twitter:domain" content="www.article-optimize.com">
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+
+	{% if analysis.success is defined and analysis.success %}	
+
+		{# Render the first ribbon, passing the second paramter 'first' #}
+		{# which will result in the 'body' padding class most ribbons use being omitted #}
+		{{ ribbon('Your ' ~ analysis.category ~ ' Article Analysis', 'first') }}
+
+		{# Begin initial presentation and sharing section #}
+		<div class="jumbotron first report-backing">
+				
+			{# Begin Badge & Text Pedestal Row #}
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						{# If the analysis was successful, render the report data #}
+						{% if analysis.badge is defined and analysis.badge %}
+							<img id="report-badge" class="overall-badge" src="{{ asset(analysis.badge) }} " />
+						{% endif %}
+					</div>
+
+					{% if analysis.articleBody is defined %}
+						<p>Your Article:</p>
+						<div class="col-md-6 col-sm-6 col-xs-12 pull-right">
+							<span  class="form-control article-pedestal">
+								{{ analysis.articleBody }}
+							</span>
+						</div>
+					{% endif %}
+				</div>
+				
+			
+				<div class="row">
+					{# We have a successful analysis - render sharing info #}
+					<div class="col-md-8 col-sm-8 col-xs-12 report-intro-text">
+						<p>
+							This is your permanent article report. You can share the link with friends or e-mail it to clients to show them the quality of your work.
+						</p>
+					</div>
+				</div>
+		
+
+			{# End Badge & Text Pedestal Row #}
+
+			    {# Begin Sharing Row #}
+				<div class="row">
+
+					<div class="col-md-6 col-xs-12">
+
+						<label>Either copy the direct link...</label>
+
+						{# Begin Shortlink Section #}
+						<div id="bitly-error" class="alert alert-danger hidden"></div>
+						<div class="input-group link-holder">
+							<input id="report-link-holder" class="form-control" value="" />
+							<span class="input-group-btn">
+								<a href="#" class="btn btn-primary" data-trigger="click" data-placement="top" title="Copied!" data-clipboard-target="#report-link-holder" id="copy-link-button" data-clipboard-target="report-link-holder" class="email-report-button copy-link-button">Copy Link</a>
+							</span>
+						</div>
+						{# End Shortlink Section #}
+
+					</div>
+
+					<div class="col-md-6 col-xs-12">
+						<label>Or click one of these sharing buttons</label>
+						<div class="btn-group share-buttons" role="group">
+
+							<a id="email-report-button" class="btn btn-success"><i class="fa fa-envelope"></i> Email</a>
+							<a id="tweet-button" class="btn btn-info" href="https://twitter.com/intent/tweet?text=I%20just%20had%20my%20article%20optimized%20for%20free%20by%20www.article-optimize.com&hashtags=writing,content,seo&via=articleoptimizr"><i class="fa fa-twitter"></i> Tweet</a>
+							<a id="facebook-share-button" class="btn btn-primary" href="http://www.facebook.com/sharer.php?u="><i class="fa fa-facebook"></i> Share</a>
+							<a class="btn btn-danger" data-pin-custom="true" href="https://www.pinterest.com/pin/create/button/"><i class="fa fa-pinterest"></i> Pin </a>
+						</div>
+
+					</div>
+
+				</div> {# End Sharing Row #}
+
+			</div>{# End container-fluid #}	
+
+		</div>	{# End Jumbotron First Report Backing #}	
+
+		{{ ribbon('Feature Analysis') }}
+
+		{# Begin Article Stats Section #}
+		<div class="jumbotron report-backing">
+
+			<div class="table-responsive">
+				<table class="table">
+				<thead>
+					<th>Feature</th>
+					<th>Search Engines See As</th>
+					<th>Analysis</th>
+				</thead>
+				<tbody>
+					<tr class="
+						{% if analysis.wordCount is defined %}
+							{% if analysis.wordCount <= 250 %}
+								danger
+							{% elseif analysis.wordCount <= 500 %}
+								info
+							{% elseif analysis.wordCount > 500 %}
+								success
+							{% endif %}
+						{% endif %}
+					">
+						<td>Total Word Count</td>
+						<td>
+							{% if analysis.wordCount is defined %}
+								{{ analysis.wordCount }}
+							{% endif %}
+						</td>
+						<td>
+						{% if analysis.wordCount is defined %}
+							{% if analysis.wordCount <= 250 %}
+								Poor
+							{% elseif analysis.wordCount <= 500 %}
+								Okay
+							{% elseif analysis.wordCount > 500 %}
+								Great
+							{% endif %}
+						{% endif %}
+						</td>
+					</tr>
+					{% if analysis.categorySucceeded is defined and analysis.categorySucceeded %}
+						<tr>
+							<td>Content Category</td>
+							<td>{{ analysis.category }}</td>
+							<td></td>
+						</tr>
+					{% endif %}
+				</tbody>
+				</table>
+			</div>
+			<hr>
+			{# If concepts analysis succeeded, render concept table #}
+			{% if analysis.conceptsSucceeded is defined and analysis.conceptsSucceeded %}
+				<p>
+					Roughly speaking, these are the concepts that search engines will consider most important in your article. 
+				</p>
+
+				<p>
+					It can be useful to scope out content that is already published and competing for the same keywords. Click the "View Competing URLs" link to see the top-performing content for each concept.
+				</p>
+				<div class="table-responsive">
+					<table class="table">
+					<thead>
+						<th>Concept</th>
+						<th>Relevance</th>
+						<th>Competing URLs</th>
+					</thead>
+					<tbody>
+						{% for concept in analysis.concepts %}
+							 <tr>
+								<td>
+									{% if concept.text is defined %}
+										{{ concept.text }}
+									{% endif %}
+								</td>
+								<td>
+									{% if concept.relevance is defined %}
+										{{ concept.relevance }}
+									{% endif %}
+								</td>
+								<td>
+									{% if concept.text is defined %}
+										<a target="_blank" href="https://www.google.com/search?q=intitle:{{ concept.text | url_encode }}">View Competing URLs</a>
+									{% endif %}
+								</td>
+							</tr> 
+						{% endfor %}
+					</tbody>
+					</table>
+				</div>
+			{% endif %}
+			{# End concepts table #}
+
+		</div> {# End Jumbotron Report Backing #}
+
+		{# Begin Keywords Section #}
+		{% if analysis.keywordsSucceeded is defined and analysis.keywordsSucceeded %}
+			{{ ribbon('Keyword Sentiment Analysis') }}
+
+			<div class="jumbotron report-backing">
+				<p>
+					This section breaks down whether the top keywords in your article have positive, negative or neutral sentiment or attitude attached to them. 
+				</p>
+
+				<p>
+					It can be useful to spot-check this section to ensure that your descriptions of your concepts are reflective of your intention.
+				</p>
+
+				{{ legend('Keyword Sentiment Legend', ['positive', 'neutral', 'negative']) }}
+
+				<div class="table-responsive">
+					<table class="table">
+					<thead>
+						<th>Keyword</th>
+						<th>Relevance</th>
+						<th>Sentiment</th>
+					</thead>
+					<tbody>
+						{% for keyword in analysis.keywords %}
+							<tr class="
+								{% if keyword.sentiment.type is defined %}
+									{% if keyword.sentiment.type == "positive" %}
+										success
+									{% elseif keyword.sentiment.type == "neutral" %}
+										info
+									{% elseif keyword.sentiment.type == "negative"  %}
+										danger
+									{% endif %}
+								{% endif %}
+							">
+								<td>{% if keyword.text is defined %}{{ keyword.text }}{% endif %}</td>
+								<td>{% if keyword.relevance is defined %}{{ keyword.relevance }}{% endif %}</td>
+								<td>
+									{% for type, score in keyword.sentiment  %}
+										{% if type is defined %}
+											{{ type|replace({ ('type'): '' }) }}  &nbsp; 
+										{% endif %}
+										{% if score is defined %}
+											{{ score|replace({ ('score'): '' }) }}
+										{% endif %}
+									{% endfor %}
+								</td>
+							</tr>
+					{% endfor %}
+					</tbody>
+					</table>
+				</div>
+				{# Begin Suggested Keywords Section #}
+				{% if analysis.suggestedKeywordsSucceeded is defined and analysis.suggestedKeywordsSucceeded %}
+					<p>You can increase traffic to your article by working in these high-traffic keywords in a natural and non-spammy way.</p>
+					<ul>
+						{% for suggestion in analysis.suggestedKeywords %}
+							<li>{{ suggestion }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+				{# End Suggested Keywords Section #}
+			</div>	
+		{% endif %}
+		{# End Keywords Section #}
+
+
+
+		{# Begin Advertisement Block #1 #}
+		{% if analysis.adsEnabled is defined and analysis.adsEnabled %}
+
+			{{ ribbon('Recommended Tools') }}
+
+			{{ advertisement(analysis.ads[0], analysis.ads[1]) }}
+
+		{% endif %}
+		{# End Advertisement Block #1 #}
+
+		{# Begin Entities Analysis #}
+		{% if analysis.entitiesSucceeded is defined and analysis.entitiesSucceeded %}
+			{{ ribbon('Entities Sentiment Analysis') }}
+
+			{# Begin Entities Section #}
+			<div class="jumbotron report-backing">
+				<p>
+					This section breaks down the positive, negative, and neutral associations your article attaches to its top entities.
+				</p>
+				<p>
+					Make sure these square with your intended message.
+				</p>
+
+				{{ legend('Entities Sentiment Legend', ['positive', 'neutral', 'negative']) }}
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<th>Entity</th>
+							<th>Type</th>
+							<th>Relevance</th>
+							<th>Sentiment</th>
+							<th>Count</th>
+						</thead>
+						<tbody>
+							{% for entity in analysis.entities %}
+								<tr class="
+										{% if entity.sentiment.type is defined %}
+											{% if entity.sentiment.type == "positive" %}
+												success
+											{% elseif entity.sentiment.type == "neutral" %}
+												info
+											{% elseif entity.sentiment.type == "negative"  %}
+												danger
+											{% endif %}
+										{% endif %}
+								">
+								<td>
+									{% if entity.text is defined %}
+										{{ entity.text }}
+									{% endif %}
+								</td>
+								<td>
+									{% if entity.type is defined %}
+										{{ entity.type }}
+									{% endif %}
+								</td>
+								<td>
+									{% if entity.relevance is defined %}
+										{{ entity.relevance }}
+									{% endif %}
+								</td>
+								<td>
+									{% if entity.sentiment is defined %}
+										{% for type, score in entity.sentiment  %}
+											{% if type is defined %}
+												{{ type|replace({ ('type'): '' }) }}  &nbsp; 
+											{% endif %}
+											{% if score is defined %}
+												{{ score|replace({ ('score'): '' }) }}
+											{% endif %}
+										{% endfor %}
+									{% endif %}
+								</td>
+								<td>
+									{% if entity.count is defined %}
+										{{ entity.count }}
+									{% endif %}							
+								</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		{% endif %}
+		{# End Entities Analysis Section #}
+
+		{# Begin Phrase Density Section #}
+		{% if analysis.phraseDensitySucceeded is defined and analysis.phraseDensitySucceeded %}
+			{{ ribbon('Phrase Density') }}
+			<div class="jumbotron report-backing">
+				<p>
+					Phrase density describes how often the key phrases in your article appear. Your writing should be natural: search engines can detect "keyword stuffing", or artificially including a keyword or phrase too frequently.
+				</p>
+
+				<p>
+					You should strongly consider using synonyms for any phrase highlighted in red here.
+				</p>
+
+				{{ legend('Density Legend', ['Good', 'Low', 'Stuffing']) }}
+				<div class="table">
+					<table class="table">
+					<thead>
+						<th>Phrase</th>
+						<th>Frequency</th>
+					</thead>
+					<tbody>
+						{% for level, array in analysis.phraseDensity %}
+							{% for phrase, percentage in array %}
+								<tr class="{% if level == "good" %}success{% elseif level == "low"  %}info{% elseif level == "stuffing" %}danger{% endif %}">
+									<td>{{ phrase }}</td>
+									<td>{{ percentage }}</td>
+								</tr>
+							{% endfor %}
+						{% endfor %}
+					</tbody>
+					</table>
+				</div>
+			</div>
+		{% endif %}
+		{# End Phrase Density Section #}
+
+		{# Begin Advertisement Block #2 #}
+		{% if analysis.adsEnabled is defined and analysis.adsEnabled %}
+
+			{{ ribbon('Content Boosting Services') }}
+
+			{{ advertisement(analysis.ads[2], analysis.ads[3]) }}
+
+		{% endif %}
+		{# End Advertisement Block #2 #}
+
+		{# Begin Images Section #}
+		{{ ribbon('Copyright-Free Images') }}
+		
+		<div class="jumbotron report-backing images">
+			{# Render the images description loading panel if we have searchable keywords #}
+			{% if analysis.flickrKeywords is defined and  analysis.flickrKeywords|length > 0 %}
+
+				<p>
+					These images have been selected because they were published with creative usage licenses that allow you to include them in your article. 
+				</p>
+				<p>
+					Including high-quality on-topic images in your content is a great way to stand out, increase inbound links to your content, and improve your article's search engine ranking.
+				</p>
+				<div id="image-container">
+
+				</div>
+				<div class="loading-div text-center">
+					<h2>Searching for Copyright Free Images...</h2>
+					<i class="fa fa-spinner fa-spin fa-4x"></i>
+				</div>
+			{% else %}
+				{# Otherwise, render an error #}
+				<div class="alert alert-warning">Sorry! We weren't able to find any images for this topic!</div>
+			{% endif %}
+		</div>
+		{# End Images Section #}
+
+		{# Send Report by Email Modal #}
+		<div id="email-report-modal" class="modal fade" tabindex="-1" role="dialog">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title">Email this report</h4>
+		      </div>
+		      <div class="modal-body">
+		      		<div class="alert alert-success hidden"></div>
+		      		<div class="alert alert-danger hidden"></div>
+		        	{{ render(controller('AppBundle:Default:emailReport')) }}
+		        	<button type="button" class="btn btn-default report-send-button" data-dismiss="modal">Cancel</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		{# End Repot by Email Modal #}
+
+		{# Load Pinit.js for creating a Pinterest Pin It button #}
+		{{ include('snippets/pinterest.html.twig') }}
+
+		{# Load Flickr Ajax Snippet to fetch images based on concepts #}
+		{{ include('snippets/flickr-ajax-snippet.html.twig', {keywords: analysis.flickrKeywords }) }}
+	{% else %}
+		{# Otherwise, analysis failef for some reason - render an error state #}
+		<div class="jumbotron report-backing text-center">
+			<i class="fa fa-warning warn fa-4x"></i>
+			<p>Oops! Something went horribly wrong!</p>
+			<p>We apologize, but we are unable to process your report right now.</p>
+			<p>Please ensure you have submitted the entire body text of your article, or please try again later.</p>
+			<a class="btn btn-success" href="/">Go Back and Try Again</a>
+		</div>
+	{% endif %}
+
+{% endblock %}

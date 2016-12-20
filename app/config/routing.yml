@@ -1,0 +1,28 @@
+_welcome: 
+    path: /
+    defaults: { _controller: AppBundle:Default:index }
+
+article_process: 
+    path: /report
+    defaults: { _controller: AppBundle:Default:articleForm }
+
+flickr_serve: 
+    path: /flickr-serve
+    defaults: { _controller: Flickr:searchAction }
+
+bitly_shorten: 
+    path: /bitly-shorten
+    defaults: { _controller: Bitly:shortenUrl }
+
+subscribe_process: 
+    path: /subscribe
+    defaults: { _controller: AppBundle:Default:subscribe }
+
+contact_process: 
+    path: /contact
+    defaults: { _controller: AppBundle:Default:contactForm }
+
+email_report_process: 
+    path: /email-report
+    defaults: { _controller: AppBundle:Default:emailReport }
+

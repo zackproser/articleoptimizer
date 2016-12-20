@@ -1,0 +1,10 @@
+{# Begin Subscriber Form #}
+{{ form(subscriberForm, { attr: {'id': 'subscriberForm'}}) }}
+<div class="form-group">
+	{{ form_widget(subscriberForm.address) }}
+</div>
+<div class="btn-group">
+	<button id="subscribe-accept" class="btn btn-success">Subscribe</button>
+	<button id="subscribe-decline" data-dismiss="modal" class="btn btn-default">No thanks - just optimize!</button>
+</div>
+{# End Subscriber Form #}

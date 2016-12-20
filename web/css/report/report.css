@@ -1,0 +1,427 @@
+/* Adjustments for mobile  */
+@media (max-width: 768px) {
+    .col-xs-12 label {
+        padding: 1em 0 1em 0;
+    }
+    .ribbon-row button.ribbon h1 {
+        font-size: 1em;
+        font-weight: 600;
+    }   
+    .btn-group.share-buttons a {
+        margin-top: 0.5em;
+        font-size: 0.6em;
+    }
+    p {
+        font-size: 1em;
+    }
+
+}
+
+body, p, a, h1, h2, h3, h4, h5, h6, span, li, label
+{
+   font-family: 'Helvetica';
+}
+
+input[type="submit"]:active {
+    padding: 0;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Bootstrap Ribbon BEGIN */
+.jumbotron {
+    background-image: url('../img/backgrounds/groovepaper.png');
+    margin-top: -10px;
+}
+
+.jumbotron p {
+    font-size: 18px;
+}
+
+.jumbotron.first, .report-backing {
+    margin-bottom: 0;
+}
+
+.link-holder {
+    padding-bottom: 2em;
+}
+
+span.form-control.article-pedestal {
+    height: 19em; 
+    overflow: scroll; 
+}
+
+button {
+    min-height: 60px;
+    margin: 20px 0;
+    line-height: 34px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    outline: none !important;
+    width: 100%;
+}
+
+.report-send-button {
+    min-height: 0;
+    min-width: 0;
+}
+
+button:active {
+    outline: none;
+}
+
+button.ribbon {
+    outline: none;
+    outline-color: transparent;
+}
+
+button.ribbon:hover {
+    background-color: #337ab7;
+}
+
+button.ribbon h1, button.ribbon-wrapped {
+    font-size: 2.5em;
+}
+
+button.ribbon.body {
+    margin-top: -10px;
+}
+
+button.ribbon:before,
+button.ribbon:after {
+    top: 8px;
+    z-index: -10;
+}
+
+button.ribbon:before {
+    border-color: #53dab6 #53dab6 #53dab6 transparent;
+    left: -35px;
+    border-width: 20px;
+}
+
+button.ribbon:after {
+    border-color: #53dab6 transparent #53dab6 #53dab6;
+    right: -35px;
+    border-width: 20px;
+}
+
+button:before,
+button:after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-width: 0;
+    outline: none;
+}
+
+button.btn-default:before {
+    border-color: #757575 #757575 #757575 transparent;
+}
+
+button.btn-default:after {
+    border-color: #757575 transparent #757575 #757575;
+}
+
+button.btn-primary:before {
+    border-color: #2e6da4 #2e6da4 #2e6da4 transparent;
+}
+
+button.btn-primary:after {
+    border-color: #2e6da4 transparent #2e6da4 #2e6da4;
+}
+
+button.btn-success:before {
+    border-color: #398439 #398439 #398439 transparent;
+}
+
+button.btn-success:after {
+    border-color: #398439 transparent #398439 #398439;
+}
+
+button.btn-info:before {
+    border-color: #269abc #269abc #269abc transparent;
+}
+
+button.btn-info:after {
+    border-color: #269abc transparent #269abc #269abc;
+}
+
+button.btn-warning:before {
+    border-color: #d58512 #d58512 #d58512 transparent;
+}
+
+button.btn-warning:after {
+    border-color: #d58512 transparent #d58512 #d58512;
+}
+
+button.btn-danger:before {
+    border-color: #ac2925 #ac2925 #ac2925 transparent;
+}
+
+button.btn-danger:after {
+    border-color: #ac2925 transparent #ac2925 #ac2925;
+}
+/* END Bootstrap Ribbon */
+
+
+/* Disable UI Elements touch activity / highlighting behavior */
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently not supported by any browser */
+}
+
+/* Bootstrap Ribbon END */
+
+
+/*-----BODY------*/
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    background-image: url(../img/backgrounds/navy_blue.png);
+    min-height: 1000px;
+    height: 100%;
+}
+
+body.report {
+    background-image: url(../img/backgrounds/paper.png);
+}
+
+img.opening-report-ribbon {
+    position: absolute;
+    left: 0;
+}
+
+/* BEGIN Advertisement blocks */
+.ad {
+    margin: 0 auto;
+} 
+/* END Advertisement blocks */
+
+.row.images img.img-responsive {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+#error h1 {
+    text-align: center;
+    color: #D62901;
+    font-size: 92pt;
+}
+
+#container {
+    position: absolute;
+    left: 50%;
+    /*top: 50%;*/
+    width: 800px;
+    height: 650px;
+    /*margin-top: -325px; */
+    margin-left: -400px;
+    /*background-image: url(brushed_alu.png);*/
+}
+
+#text-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 750px;
+    height: 600px;
+    margin-top: -300px;
+    margin-left: -375px;
+}
+
+#results-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1200px;
+    height: 1050px;
+    margin-top: -725px;
+    margin-left: -800px;
+    background-color: white;
+}
+
+#report-container {
+    margin: 0 auto;
+    max-width: 1260px;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+textarea {
+    resize: none;
+    /*z-index: 3;*/
+    border: none;
+}
+
+#selector input {
+    font-size: 36pt;
+}
+
+textarea::-webkit-input-placeholder {
+   font-family: 'Helvetica'; 
+}
+
+textarea:-moz-placeholder { /* Firefox 18- */
+   font-family: 'Helvetica';
+}
+
+textarea::-moz-placeholder {  /* Firefox 19+ */
+   font-family: 'Helvetica';
+}
+
+textarea:-ms-input-placeholder { 
+   font-family: 'Helvetica'; 
+}
+
+#summary {
+    padding: 12px;
+}
+
+#bufferDiv {
+    margin-bottom: 765px;
+}
+
+.report-intro-text {
+    margin: 1em 0 0 0.5em;
+    padding: 0.5em;
+}
+
+/*-----------GRAPH STYLES-------------*/
+
+
+/*-------------IMAGES TABLE--------------*/
+
+.loading-div .fa-spinner {
+    margin-top: 1em;
+}
+
+#images {
+    position: relative;
+    overflow: scroll;
+    top: -100px;
+    width: 100%;
+}
+
+.image-container {
+    position: relative; 
+    max-width: 200px; 
+    max-height: 200px; 
+}
+
+.image-container .overlay {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    display: none; 
+    color: #fff;
+}
+
+.image-container:hover .overlay {
+    display: block;
+    background: rgba(0, 0, 0, .6);
+}
+
+
+/* End pulled from main.css */
+
+#results-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1200px;
+    height: 1050px;
+    margin-top: -725px;
+    margin-left: -800px;
+    background-color: white;
+}
+
+#report-container {
+    background-image: url(../img/backgrounds/debut_light.png);
+    margin: 0 auto;
+    max-width: 1260px;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+body.report {
+}
+
+#summary {
+    padding: 12px;
+}
+
+#bufferDiv {
+    margin-bottom: 765px;
+}
+
+#images {
+    position: relative;
+    overflow: scroll;
+    top: -100px;
+    width: 100%;
+}
+
+.overlay {
+    display: none;
+    opacity: 1;
+    background-color: rgba(50,50,50,1);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.overlay.text-center {
+    margin-top: 1em;
+}
+
+ul.img-row{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.ratio-4-3{
+    width:100%;
+    position:relative;
+    background:url() 50% 50% no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+}
+.ratio-4-3:before{
+    display:block;
+    content:"";
+    padding-top:75%;
+}

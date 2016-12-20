@@ -1,0 +1,55 @@
+#how-it-works {
+    background-image: url(../img/backgrounds/subtle_carbon.png);
+    height: auto; 
+    margin: 10px; 
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px; 
+    border-radius: 10px;
+
+
+}
+
+.active {
+    text-shadow: 0px 0px 9px #fff;
+}
+
+#how-it-works li, #how-it-works h3 {
+    font-family: 'Podkova';
+    font-weight: bold;
+    font-size: 23pt;
+    color: #ED7916;
+    text-shadow: 0px 2px 3px #994E0E;
+    
+}
+
+#how-it-works h2 {
+    padding-left: 86px;
+    display: inline;
+    font-family: 'Podkova', serif;
+    font-size: 36pt;
+    color: #2CB92C;
+    text-shadow: 0px 2px 2px #065103;
+}
+
+
+#how-it-works p {
+    margin-left: 5px;
+    font-family: 'Noto Sans';
+    font-size: 14pt;
+
+}
+
+#how-social {
+    padding-top: 25px;
+    padding-left: 220px; 
+}
+
+#support {
+    margin-left: 48px; 
+}
+
+#how-it-works ul li i {
+    text-shadow: none; 
+}
+
+

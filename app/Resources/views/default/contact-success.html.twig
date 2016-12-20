@@ -1,0 +1,12 @@
+{% block stylesheets %}
+    {% stylesheets 'css/index/*.css' %}
+    {# Render all index page-specific stylesheets #}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+
+<h1>{{ contact_success_response }}</h1>
+
+{% endblock %}

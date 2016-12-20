@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+  <script src="{{ asset('js/optimizer-client.js') }}"></script>
+  <script src="{{ asset('js/index.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets 'css/index/*.css' %}
+    {# Render all index page-specific stylesheets #}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+
+{# Handle returning user vs new user logic #}
+{% if returningUser is defined and returningUser == 1 %}
+   <span data-status="r" class="hidden stat"></span>
+{% else %}
+   <span data-status="n" class="hidden stat"></span>
+{% endif %}
+
+<body>
+
+<div class="container">
+
+   {# Include loading animation overlay #}
+    {{ include('snippets/loading-animation.html.twig') }}
+
+  <div class="row">
+
+    {# Left Gutter #}
+    <div class="col-md-2"></div>
+    {# End Left Gutter #}
+
+    <div class="col-md-8">
+
+      {# Begin Main Logo #}
+      <div class="text-center">
+          <div id="bubbles">
+            {# Create the expected 27 bubbles in a loop #}
+            {# CSS expects bubbles to have a class in format: x22 #}
+            {% for i in 1..27 %}
+              <div class="bubble x{{ i }}"></div>
+            {% endfor %}
+          </div>
+
+          <img class="" id="main-logo" src="img/article-optimizer-logo.png" itemprop="image" />
+
+      </div>
+    
+      {# End Main Logo #}
+
+      {# Begin Navbar #}
+      <div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-flask"></i> Optimize</a></li>
+            <li role="presentation"><a href="#walkthrough" aria-controls="walkthrough" role="tab" data-toggle="tab"><i class="fa fa-info-circle"></i> How It Works</a></li>
+            <li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab"><i class="fa fa-envelope"></i> Contact Us</a></li>
+        </ul>
+      </div>
+      {# End Navbar #}
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="home">
+          <div id="article-alert" class="alert alert-danger hidden"></div>
+          {{ render(controller('AppBundle:Default:articleForm')) }}
+          </div>
+        </div>
+
+        {# Begin How it Works Panel #}
+        <div role="tabpanel" class="tab-pane fade in" id="walkthrough">
+          <p>Almost done with an article but want to receive tips for optimizing its search rankings and performance?</p>
+
+          <p>Simply paste the entirety of your article into the form on the Optimize tab and submit it to receive a detailed analysis that includes keyword recommendations, copyright-free images, and more.</p>
+
+          <p>Your report will be saved so that you can share it with clients or friends and it will look like this:</p>
+          <img class="img-responsive" src="{{ asset('img/article-optimizer-example-report.png') }}" />
+        </div>
+        {# End How it Works Panel #}
+
+        <div role="tabpanel" class="tab-pane fade in" id="contact">
+          <div class="alert alert-success hidden"></div>
+          <div class="alert alert-danger hidden"></div>
+          {{ render(controller('AppBundle:Default:contactForm')) }}
+        </div>
+
+      </div>
+
+      {# Begin Signature Panel #}
+      <div class="signature">
+        <a href="//www.zackproser.com"><h1>Created by Zack Proser</h1></a>
+      </div>
+      {# End End Signature Panel #}
+
+      {# Begin Sign-up Modal #}
+      <div id="email-signup-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Want writing tips from the creator of this tool?</h4>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-success hidden"></div>
+              <div class="alert alert-danger hidden"></div>
+              {{ render(controller('AppBundle:Default:subscribe')) }}
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      {# End Sign-up Modal #}
+
+    </div><!--col-md-8-->
+
+    {# Right Gutter #}
+    <div class="col-md-2"></div>
+    {# End Right Gutter #}
+
+  </div><!--row-->
+</div><!--container-->
+
+</body>
+
+{% endblock %}
+

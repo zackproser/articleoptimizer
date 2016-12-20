@@ -1,0 +1,136 @@
+# After the burning there is only the burning and after the burning there is only the burning...
+parameters:
+    ############
+    # Framework
+    ############
+    # This is a string that should be unique to your application and it's commonly used to add more entropy to security related operations. Its value should be a series of characters, numbers and symbols chosen randomly and the recommended length is around 32 characters.
+    secret: 17dddd0d729a4000a9a6d35fae598ae3694991cb
+    ###########
+    # Database
+    ###########
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: symfony
+    database_user: root
+    database_password: null
+    #########
+    # Mailer
+    #########
+    mailer_transport: smtp
+    mailer_host: smtp.sendgrid.net
+    mailer_port: 587
+    mailer_user: apikey
+    mailer_password: SG.pkslvhsvlhSbSvQ8927rOBIpXOz1cWIqnCfqTheKdKJHDdfvugw
+    ###################
+    # Google Analytics
+    ##################
+    # Whether or not Google Analytics tracking code should appear on all pages - defaults to true
+    google_analytics_enabled: true
+    # The unique Google Analytics property ID assigned at www.google.com/analytics
+    # This value must exactly match the value in your Google Analytics dashboard
+    # This value determines which Google Analytics web property will receive
+    # data and metrics for all users of this application
+    google_analytics_tracking_id: UA-11111111-99
+    #############
+    # Mailchimp
+    #############
+    # Mailchimp API's root URL
+    mailchimp_api_root: https://us7.api.mailchimp.com/3.0/
+    # The ID of the mailchimp list you want users subscribed to
+    mailchimp_list_id: zYdgfh4f2344Z
+    # The Mailchimp API key associated with this app
+    mailchimp_api_key: z22343440euuu728b0cbe6ef910z7-us7
+    ########
+    # Curl 
+    ########
+    #Default number of seconds to wait before timing out a stalled curl request 
+    curl_timeout: 15
+    ##########
+    # Cookies
+    ##########
+    #This is the application-specific cookie name used 
+    #To determine if a user is returning or not 
+    cookie_name: "xd738936d8443rt87trasdygsduyg"
+    cookie_value: "2fiuZaagsdjhfjhsy2h4fgsshas"
+    #######################
+    # Branding & Ownership
+    #######################
+    # The fully qualified domain name of the app - e.g. www.article-optimize.com 
+    hostname: www.article-optimize.com
+    #The 'publisher' or 'owner' of the app - value for the meta tag 'author'
+    app_author: "Zack Proser"
+    #The value for the <title> tag that will appear in the tab 
+    app_title: "SEO Content Optimizer"
+    ######################
+    # Contact Requests
+    ######################
+    # The subject line that will appear on notification emails  
+    # when users submit feedback via the Contact form
+    contact_email_subject: "Contact Request - Article Optimizer"
+    # The email address that contact requests should be sent to 
+    # If you are the sole administrator of this application, 
+    # then this should be set to the email address at which 
+    # you want to receive user feedback, requests, complaints, etc.
+    contact_email_delivery_address: "zackproser@gmail.com"
+    # The customizable message that will appear to users
+    # after they successfully submit feedback to you via 
+    # the contact form 
+    contact_success_response: "Thanks! We'll be in touch"
+    #######################
+    # Report Emailing 
+    #######################
+    # The customizable subject line that will appear to the end recipient 
+    # any time that a user of this app sends a processed article analysis report 
+    # to an external user via the "Email this Report" functionality
+    report_email_subject: "You've received an article optimization report"
+    # The customizable message that will be displayed to the user 
+    # after they successfully submit a contact message to the app 
+    report_email_success_message: "Success! Your report was sent."
+    #######################
+    # Alchemy API 
+    #######################
+    # Alchemy provides semantic analysis functions 
+    # Obtain your api key from www.alchemyapi.com
+    alchemy_api_key: 'zgdhgg299999a0d5e93ef7518efr4f36s'
+    # Alchemy API base URL: 
+    alchemy_api_base_url: https://gateway-a.watsonplatform.net/calls
+    # Limit number of named entities to extract - defaults to 10
+    alchemy_max_entities_retrieve: 15
+    # Whether or not alchemy responses should include sentiment analysis - defaults to 1 (true)
+    alchemy_include_sentiment: 1
+    #######################
+    # Bitly 
+    #######################
+    # Bitly shortens URLs and provides metrics on its shortlinks
+    # Obtain your token from www.bitly.com
+    bitly_token: 'splrtrsdfh698288bf67999334'
+    #######################
+    # Flickr API 
+    #######################
+    # Flickr provides photos to be used with articles
+    flickr_api_key: 'zskleid44af23b666664c63'
+    #######################
+    # Article Reports
+    #######################
+    # The directory containing all of the badges for 100% optimized articles
+    optimal_badge_directory: 100-percent-optimized
+    # The directory containing all of the category badges (sub-optimal)
+    category_badge_directory: categories
+    ########################
+    # Advertising 
+    ########################
+    # Whether or not advertisement blocks should be rendered, using the following data
+    ads_enabled: true
+    advertisements: 
+      -  cta: Download Perfect Wordpress Themes for 48 cents each
+         img_path: ads/elegantthemes/300x250.gif
+         url: http://www.elegantthemes.com/affiliates/idevaffiliate.php?id=9762_0_1_10
+      -  cta: Host your own article site and keep all the revenue
+         img_path: ads/bluehost/300x250/bh_300x250_02.gif
+         url: http://www.bluehost.com/track/zackproser/CODE43 
+      -  cta: Automatically find keywords that earn money
+         img_path: ads/MarketSamuraiBanner.jpg
+         url: http://www.marketsamurai.com/c/articleoptimizer
+      -  cta: Outrank your competitors for competitive keywords
+         img_path: ads/semrush_banner_300_250.png
+         url: http://www.semrush.com/sem.html?ref=487183848

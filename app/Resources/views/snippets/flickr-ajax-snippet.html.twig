@@ -1,0 +1,28 @@
+{# Closure to run on pageload to make ajax requests #}
+{# to backend for flickr images based on the top concepts #}
+<script>
+	function getFlickrImages() {
+		var topics = [
+			{% for keyword in keywords %}
+				"{{ keyword }}"
+				{{ not loop.last ? ',' }}
+			{% endfor %}
+		];
+		topics = topics.filter(function(item, pos, self){
+			return self.indexOf(item) == pos;
+		});
+		var keywords = topics.join(); 
+		$.ajax({
+			url: '/flickr-serve', 
+			method: 'POST',
+		    data: { keywords: keywords }, 
+			success: function(data) {
+				$('#image-container').html(data);
+				$('.loading-div').hide();
+			}, 
+			error: function(error) {
+				
+			}
+		}); 
+	}; 
+</script>

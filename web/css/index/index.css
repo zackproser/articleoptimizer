@@ -1,0 +1,279 @@
+/* Adjustments for mobile  */
+@media (max-width: 768px) {
+    #loading-animation h1 {
+      font-size: 1em;
+      top: 40%;
+    }
+    #loading-animation .loading-img {
+      top: 50%;
+    }
+}
+
+/* Disable Image Dragging and Selecting */
+img {
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    draggable: false; 
+}
+
+body {
+    font-family: 'Helvetica';
+    padding-top: 100px;
+    background-color: #000;
+}
+
+p, a, h1, h2, h3, h4, h5, h6, span, li 
+{
+   font-family: 'Helvetica';
+}
+
+.tab-content p {
+  padding: 1em;
+  color: #fff;
+  text-shadow: none; 
+}
+
+/* Article Textarea */
+
+textarea {
+    resize: none;
+}
+
+/* Article & contact form textareas' placeholder text */
+
+textarea::-webkit-input-placeholder {
+   font-family: 'Helvetica'; 
+   position: relative;
+   top: 2em;
+   color: #585550;
+   font-size: 2em;
+   text-align: center;
+}
+
+textarea:-moz-placeholder { /* Firefox 18- */
+   font-family: 'Helvetica';
+   position: relative;
+   top: 2em;
+   color: #585550;
+   font-size: 2em;
+   text-align: center;  
+}
+
+textarea::-moz-placeholder {  /* Firefox 19+ */
+   font-family: 'Helvetica';
+   position: relative;
+   top: 2em;
+   color: #585550;
+   font-size: 2em;
+   text-align: center;  
+}
+
+textarea:-ms-input-placeholder { 
+   font-family: 'Helvetica'; 
+   position: relative;
+   top: 2em;
+   color: #585550;
+   font-size: 2em;
+   text-align: center;  
+}
+
+textarea {
+    font-family: 'Helvetica';
+    min-height: 300px;
+    width: 100%;
+}
+
+.alert {
+    margin-top: 1em;
+}
+
+/* Optional contact us response email address placeholder text */
+.contact-email::-webkit-input-placeholder {
+    font-family: 'Helvetica';
+    color: #585550;
+    font-size: 1.2em;
+    text-align: center; 
+}
+
+.contact-email:-moz-placeholder {
+    font-family: 'Helvetica';
+    color: #585550;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.contact-email::-moz-placeholder {  /* Firefox 19+ */
+    font-family: 'Helvetica';
+    color: #585550;
+    font-size: 1.2em;
+    text-align: center;  
+}
+
+.contact-email:-ms-input-placeholder {
+    font-family: 'Helvetica'; 
+    color: #585550;
+    font-size: 1.2em;
+    text-align: center;  
+}
+
+.submit-button {
+    font-family: 'Helvetica';
+    font-size: 2em;
+    float: right;
+    width: 100%;
+}
+
+.nav {
+    margin-top: 2em;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #9AD40B;
+}
+
+.nav-tabs li a {
+    font-size: 1.2em;
+    color: #0B7A19;
+}
+
+.nav-tabs li.active a {
+    background-color: #000 !important;
+    border: 1px solid #9AD40B !important;
+    font-size: 1.4em;
+    color: #fff !important;
+}
+
+.nav-tabs li a:hover {
+    background-color: #000 !important;
+    border: 1px solid #9AD40B !important;
+    color: #0B7A19 !important;
+}
+
+.nav-tabs li.active a:hover {
+    background-color: #000 !important;
+    border: 1px solid #9AD40B !important;
+    color: #fff !important;
+}
+
+.signature {
+    text-align: center;
+    margin-top: 6em;
+    padding-bottom: 4em;
+}
+
+.signature a h1 {
+    color: green;
+    font-size: 1.5em;
+}
+
+/* Mobile device adjustments */
+/* Remove bubbles, shrink logo, adjust placeholder text and submit button text */
+@media(max-width: 600px) {
+    #main-logo {
+        max-width: 80%;
+    }
+    #bubbles {
+        display: none;
+    }
+
+    /* Nav */
+    .nav {
+        margin-top: 1.2em;
+    }
+
+    .nav ul {
+        display: inline-block;
+    }
+
+    .nav-tabs li {
+        width: 100%;
+        float: none;
+    }
+
+    .nav-tabs li a {
+        display: inline-block;
+        font-size: 1em;
+        color: #0B7A19;
+    }
+
+    .nav-tabs li.active a {
+
+        font-size: 0.8em;
+        color: #0B7A19;
+    }
+
+    .nav-tabs li.active a:hover {
+        color: #0B7A19;
+    }
+
+    /* Article & contact form textareas' placeholder text */
+
+    textarea::-webkit-input-placeholder {
+       position: relative;
+       top: 1.2em;
+       color: #585550;
+       font-size: 1.2em;
+       text-align: center;
+    }
+
+    textarea:-moz-placeholder { /* Firefox 18- */
+       position: relative;
+       top: 1.2em;
+       color: #585550;
+       font-size: 1.2em;
+       text-align: center;  
+    }
+
+    textarea::-moz-placeholder {  /* Firefox 19+ */
+       position: relative;
+       top: 1.2em;
+       color: #585550;
+       font-size: 1.2em;
+       text-align: center;  
+    }
+
+    textarea:-ms-input-placeholder { 
+       position: relative;
+       top: 1.2em;
+       color: #585550;
+       font-size: 1.2em;
+       text-align: center;  
+    }
+
+    textarea {
+       min-height: 300px;
+       width: 100%;
+    }
+
+    /* Optional contact us response email address placeholder text */
+    .contact-email::-webkit-input-placeholder {
+        color: #585550;
+        font-size: 1.2em;
+        text-align: center; 
+    }
+
+    .contact-email:-moz-placeholder {
+        color: #585550;
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .contact-email::-moz-placeholder {  /* Firefox 19+ */
+       color: #585550;
+       font-size: 1.2em;
+       text-align: center;  
+    }
+
+    .contact-email:-ms-input-placeholder { 
+       color: #585550;
+       font-size: 1.2em;
+       text-align: center;  
+    }
+
+    .submit-button {
+        font-size: 1.2em;
+        float: right;
+        width: 100%;
+    }
+}

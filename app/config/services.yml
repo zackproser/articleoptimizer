@@ -1,0 +1,23 @@
+parameters:
+    #parameter: value
+services:
+    analyzer:
+        class: AppBundle\Classes\Analyzer
+        arguments: ["%alchemy_api_key%", "@curl", "@logger", "@service_container"]
+    analysis_helper:
+        class: AppBundle\Classes\AnalysisHelper
+        arguments: ["@logger", "@service_container"]
+    curl: 
+        class: AppBundle\Classes\CurlHelper
+        arguments: ["%curl_timeout%", "@logger"]
+    flickr: 
+        class: AppBundle\Classes\Flickr
+        arguments: ["@service_container", "%flickr_api_key%", "@curl", "@logger"]
+    bitly: 
+        class: AppBundle\Classes\Bitly
+        arguments: ["%hostname%", "%bitly_token%", "@curl", "@logger"]
+    app.twig_extension: 
+        class: AppBundle\Twig\AppExtension
+        public: false
+        tags: 
+            - { name: twig.extension }

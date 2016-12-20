@@ -1,0 +1,16 @@
+{# format: http://farm{farm-id}.static.flickr.com/{server-id}/{id}_{secret}.jpg  #}
+<div class="container-fluid">
+  <ul class="row img-row">
+  	{% for img in photos %}
+  		 <li class="col-lg-3 col-md-3 col-sm-6 image-container">
+        	<div class="img-responsive img-thumbnail ratio-4-3" data-clipboard-text="https://farm{{ img.farm }}.static.flickr.com/{{ img.server }}/{{ img.id }}_{{ img.secret }}.jpg" style='background-image:url("//farm{{ img.farm }}.static.flickr.com/{{ img.server }}/{{ img.id }}_{{ img.secret }}.jpg")'>
+        		<div class="overlay">
+				  	<div class="text-center">
+				  		<button class="btn btn-success"><i class="fa fa-copy"></i> Click to Copy</button>
+				  	</div>
+		    	</div>
+        	</div>
+    	</li>
+	{% endfor %}
+  </ul>
+</div>
