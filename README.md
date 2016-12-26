@@ -2,7 +2,7 @@
 
 ## Overview 
 
-This application allows users to submit text articles on any subject and have their content analyzed. This application is live and free to use at [www.article-optimize.com](https://www.article-optimize.com).
+This application allows users to submit text articles on any subject and have their content analyzed. This application is live and free to use at [www.article-optimize.com](https://www.article-optimize.com). For a more in-depth write-up of this application, read [my technical blog post about it here](https://www.zackproser.com/blog/article/I-Open-Sourced-My-Content-Analysis-Tool).
  
  The resulting report will make suggestions on keyword, phrase and sentiment optimizations that the author can make to improve the legibility and hopefully the overall rankings of their work. The report will also search for high quality on-topic images that are 
 copyright-free, allowing the author to quickly drop them into their content to improve its media richness.
