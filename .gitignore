@@ -16,5 +16,6 @@
 /vendor/
 /web/bundles/
 /web/saved-reports/*
+/web/.sass-cache
 *.sublime-project
 *.sublime-workspace
