@@ -1,5 +1,7 @@
 # [Article Optimizer](https://www.article-optimize.com)
 
+![Article Optimizer Screenshot](doc/img/symfony-optimizer-splash.png)
+
 ## Overview 
 
 This application allows users to submit text articles on any subject and have their content analyzed. This application is live and free to use at [www.article-optimize.com](https://www.article-optimize.com). For a more in-depth write-up of this application, read [my technical blog post about it here](https://www.zackproser.com/blog/article/I-Open-Sourced-My-Content-Analysis-Tool).
